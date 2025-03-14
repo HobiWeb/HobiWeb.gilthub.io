@@ -1,0 +1,349 @@
+<html>
+ <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const imagePaths = {
+            baseMaterial: {
+                "18cm Pocket Encasement + Rl": "18cm Pocket Encasement + Rl.png",
+                "20cm Semi Ortho Foam (D50)": "20cm Semi Ortho Foam (D50).png",
+                "20cm Ortho Foam (D70)": "20cm Ortho Foam (D70).png",
+                "20cm Foam (D24)": "20cm Foam (D24).png",
+                "22cm Pocket Encasement + Rl": "22cm Pocket Encasement + Rl.png",
+            },
+            supportLayer: {
+                "4cm Orthopedic (D120)": "4cm Orthopedic (D120).png",
+                "10cm Semi Orthopedic D50": "10cm Semi Orthopedic D50.png",
+                "4cm Semi Orthopedic D50": "4cm Semi Orthopedic D50.png",
+                "15cm Semi Orthopedic D50": "15cm Semi Orthopedic D50.png",
+                "5cm Semi Orthopedic D50": "5cm Semi Orthopedic D50.png",
+                "6cm D24": "6cm D24.png",
+            },
+            comfortLayer: {
+                "2cm D24": "2cm D24.png",
+                "2cm R50": "2cm R50.png",
+                "3cm R50": "3cm R50.png",
+                "Synth Latex D26 1,5cm": "Synth Latex D26 1,5cm.png",
+                "Synth Latex D26 2cm": "Synth Latex D26 2cm.png",
+                "Synth Latex D50 2cm": "Synth Latex D50 2cm med.png",
+                "Synth Latex D50 5cm": "Synth Latex D50 5cm med.png",
+                "Memory Foam A Grade (Min Qty 1,6m3) 4cm": "Memory Foam A Grade (Min qty 1,6m3) 4cm med.png",
+                "Latex A Grade 5cm": "Latex A Grade 5cm med.png",
+                "Latex B Grade 5cm": "Latex B Grade 5cm med.png",
+                "Memory Foam B Grade (Min Qty 1,6m3) 4cm": "Memory Foam B Grade (Min qty 1,6m3) 4cm med.png"
+            },
+            layerLast: {
+                "2cm D24": "2cm D24 ektra.png",
+                "2cm R50": "2cm R50 ektra.png",
+                "3cm R50": "3cm R50 ektra.png",
+                "Synth Latex D26 1,5cm": "Synth Latex D26 1,5cm ektra.png",
+                "Synth Latex D26 2cm": "Synth Latex D26 2cm ektra.png",
+                "Synth Latex D50 2cm": "Synth Latex D50 2cm.png",
+                "Synth Latex D50 5cm": "Synth Latex D50 5cm.png",
+                "Memory Foam A Grade (Min Qty 1,6m3) 4cm": "Memory Foam A Grade (Min Qty 1,6m3) 4cm.png",
+                "Latex A Grade 5cm": "Latex A Grade 5cm.png",
+                "Latex B Grade 5cm": "Latex B Grade 5cm.png",
+                "Memory Foam B Grade (Min Qty 1,6m3) 4cm": "Memory Foam B Grade (Min Qty 1,6m3) 4cm.png"
+            },
+            additionalLayer: {
+                "1 Side 5 Cm Quilting Top": "1cm Foam.png",
+                "1 Side Non Quilting": "2cm Foam.png",
+                "2 Side 5 Cm Quilting 2X": "3cm Foam.png",
+                "2 Side 5 Cm Quilting - Non Quilting": "4cm Foam.png",
+                "2 Side Non Quilting 2X": "5cm Foam.png"
+            }
+        };
+
+        const prices = {
+            baseMaterial: {
+                "18cm Pocket Encasement + Rl": [2595000, 3090000, 3753000, 4494000,4632000, 5073000],
+                "20cm Semi Ortho Foam (D50)": [2484000, 3312000, 3864000, 4413000, 4965000, 5517000],
+                "20cm Ortho Foam (D70)": [3393000, 4521000, 5274000, 6030000, 6783000, 7536000],
+                "20cm Foam (D24)": [2766000, 3690000, 4302000, 4917000, 5532000, 6147000],
+                "22cm Pocket Encasement + Rl": [2976000, 3810000, 4296000, 4785000, 5274000, 5766000],
+            },
+            supportLayer: {
+                "4cm Orthopedic (D120)": [894000, 1194000, 1392000, 1590000, 1788000, 1986000],
+                "10cm Semi Orthopedic D50": [933000, 1242000, 1449000, 1656000, 1863000, 2070000],
+                "4cm Semi Orthopedic D50": [375000, 498000, 582000, 663000, 747000, 828000],
+                "15cm Semi Orthopedic D50": [1398000, 1863000, 2172000, 2484000, 2796000, 3105000],
+                "5cm Semi Orthopedic D50": [468000, 621000, 726000, 828000, 933000, 1035000],
+                "6cm D24": [624000, 831000, 969000, 1107000, 1245000, 1383000],
+            },
+            comfortLayer: {
+                "2cm D24": [210000, 279000, 324000, 369000,	417000,	462000],
+                "2cm R50": [189000, 249000, 291000, 333000, 375000, 414000],
+                "3cm R50": [282000, 375000, 435000, 498000, 561000, 621000],
+                "Synth Latex D26 1,5cm": [222000, 294000, 342000, 390000, 441000, 489000],
+                "Synth Latex D26 2cm": [294000, 390000, 456000, 522000, 585000, 651000],
+                "Synth Latex D50 2cm": [384000, 510000, 597000, 681000, 765000, 849000],
+                "Synth Latex D50 5cm": [957000, 1275000, 1488000, 1698000, 1911000, 2124000],
+                "Memory Foam A Grade (Min Qty 1,6m3) 4cm": [3045000, 4062000, 4737000, 5415000, 6090000, 6768000],
+                "Latex A Grade 5cm": [3444000, 4590000, 5355000, 6120000, 6885000, 7650000],
+                "Latex B Grade 5cm": [2634000, 3510000, 4095000, 4680000, 5265000, 5850000],
+                "Memory Foam B Grade (Min Qty 1,6m3) 4cm": [2136000, 2847000, 3321000, 3795000, 4269000, 4743000]
+            },
+            layerLast: {
+                "none": [0, 0, 0, 0, 0, 0],
+                "2cm D24": [210000, 279000, 324000, 369000,	417000,	462000],
+                "2cm R50": [189000, 249000, 291000, 333000, 375000, 414000],
+                "3cm R50": [282000, 375000, 435000, 498000, 561000, 621000],
+                "Synth Latex D26 1,5cm": [222000, 294000, 342000, 390000, 441000, 489000],
+                "Synth Latex D26 2cm": [294000, 390000, 456000, 522000, 585000, 651000],
+                "Synth Latex D50 2cm": [384000, 510000, 597000, 681000, 765000, 849000],
+                "Synth Latex D50 5cm": [957000, 1275000, 1488000, 1698000, 1911000, 2124000],
+                "Memory Foam A Grade (Min Qty 1,6m3) 4cm": [3045000, 4062000, 4737000, 5415000, 6090000, 6768000],
+                "Latex A Grade 5cm": [3444000, 4590000, 5355000, 6120000, 6885000, 7650000],
+                "Latex B Grade 5cm": [2634000, 3510000, 4095000, 4680000, 5265000, 5850000],
+                "Memory Foam B Grade (Min Qty 1,6m3) 4cm": [2136000, 2847000, 3321000, 3795000, 4269000, 4743000]
+            },
+            additionalLayer: {
+                "1 Side 5 Cm Quilting Top": [2523000, 3219000, 3681000, 4146000, 4611000, 5073000],
+                "1 Side Non Quilting": [1107000, 1329000, 1479000, 1629000, 1779000, 1926000],
+                "2 Side 5 Cm Quilting 2X": [4611000, 6003000, 6930000, 7860000, 8787000, 9718000],
+                "2 Side 5 Cm Quilting - Non Quilting": [2991000, 3687000, 4149000, 4614000, 5079000, 5418000],
+                "2 Side Non Quilting 2X": [1323000, 1620000, 1818000, 2016000, 2190000, 2373000]
+            }
+        };
+
+        function updateSelection() {
+            const baseMaterial = document.getElementById('baseMaterial').value;
+            const supportLayer = document.getElementById('supportLayer').value;
+            const comfortLayer = document.getElementById('comfortLayer').value;
+            const layerLast = document.getElementById('layerLast').value;
+            const additionalLayer = document.getElementById('additionalLayer').value;
+            const size = document.getElementById('size').value;
+
+            // Update gambar sesuai pilihan
+            document.getElementById('baseMaterialImage').src = imagePaths.baseMaterial[baseMaterial];
+            document.getElementById('supportLayerImage').src = imagePaths.supportLayer[supportLayer];
+            document.getElementById('comfortLayerImage').src = imagePaths.comfortLayer[comfortLayer];
+            document.getElementById('layerLastImage').src = imagePaths.layerLast[layerLast];
+            document.getElementById('additionalLayerImage').src = imagePaths.additionalLayer[additionalLayer];
+
+            // Calculate total price
+            const totalPrice = prices.baseMaterial[baseMaterial][size] + prices.supportLayer[supportLayer][size] + prices.comfortLayer[comfortLayer][size] + prices.layerLast[layerLast][size] + prices.additionalLayer[additionalLayer][size];
+            document.getElementById('totalPrice').innerText = `Rp ${totalPrice.toLocaleString()}`;
+        }
+    </script>
+    <style>
+        @media screen and (max-width: 1440px) {
+         .image-container img {
+             width: 80%; /* Kurangi ukuran gambar di layar kecil */
+           }
+             .p-5 {
+                padding: 2rem; /* Atur padding agar tidak terlalu besar */
+              }
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+        .image-container img {
+            position: absolute;
+            top: -28;
+            left: 0;
+            width: 100%;
+            height: auto;
+        }
+        body {
+            background-image: url("bgkamar.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+         
+        }
+    </style>
+ </head>
+<body>
+    <div class="flex justify-center items-center min-h-screen">
+        <div class="p-5 rounded-lg shadow-lg w-full max-w-7xl">
+            <h1 class="text-5xl font-bold mb-6 text-center">Customize Your Bed</h1>
+            <div class="flex flex-col md:flex-row">
+                <div class="w-full md:w-1/2 mb-6 md:mb-0 relative">
+                    <div class="absolute top-0 left-0 w-full h-full p-4 flex flex-col justify-center items-start bg-black bg-opacity-0 text-white">
+                        <p><span id="selectedBaseMaterial"></span></p>
+                        <p><span id="selectedSupportLayer"></span></p>
+                        <p><span id="selectedComfortLayer"></span></p>
+                        <p><span id="selectedLayerLast"></span></p>
+                        <p><span id="selectedAdditionalLayer"></span></p>
+                    </div>
+                    <div class="image-container">
+                        <img id="baseMaterialImage" src="images/18cm Pocket Encasement + Rl.png" alt="Base Material">
+                        <img id="supportLayerImage" src="images/4cm Orthopedic (D120).png" alt="Support Layer">
+                        <img id="comfortLayerImage" src="images/2cm D24.png" alt="Comfort Layer">
+                        <img id="layerLastImage" src="images/Synth Latex D50 2cm.png" alt="Layer Last">
+                        <img id="additionalLayerImage" src="images/1cm Foam.png" alt="Additional Layer">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 md:pl-6">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2">Base Material</label>
+                        <select class="w-full p-2 border border-gray-300 rounded" id="baseMaterial" onchange="updateSelection()">
+                            <option value="18cm Pocket Encasement + Rl">18cm Pocket Encasement + Rl </option>
+                            <option value="20cm Semi Ortho Foam (D50)">20cm Semi Ortho Foam (D50) </option>
+                            <option value="20cm Ortho Foam (D70)">20cm Ortho Foam (D70)</option>
+                            <option value="20cm Foam (D24)">20cm Foam (D24) </option>
+                            <option value="22cm Pocket Encasement + Rl">22cm Pocket Encasement + Rl </option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2">Support Layer</label>
+                        <select class="w-full p-2 border border-gray-300 rounded" id="supportLayer" onchange="updateSelection()">
+                            <option value="4cm Orthopedic (D120)">4cm Orthopedic (D120)</option>
+                            <option value="10cm Semi Orthopedic D50">10cm Semi Orthopedic D50</option>
+                            <option value="4cm Semi Orthopedic D50">4cm Semi Orthopedic D50</option>
+                            <option value="15cm Semi Orthopedic D50">15cm Semi Orthopedic D50 </option>
+                            <option value="5cm Semi Orthopedic D50">5cm Semi Orthopedic D50</option>
+                            <option value="6cm D24">6cm D24</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2">Comfort Layer</label>
+                        <select class="w-full p-2 border border-gray-300 rounded" id="comfortLayer" onchange="updateSelection()">
+                            <option value="2cm D24">2cm D24 </option>
+                            <option value="2cm R50">2cm R50 </option>
+                            <option value="3cm R50">3cm R50 </option>
+                            <option value="Synth Latex D26 1,5cm">Synth Latex D26 1,5cm </option>
+                            <option value="Synth Latex D26 2cm">Synth Latex D26 2cm </option>
+                            <option value="Synth Latex D50 2cm">Synth Latex D50 2cm ( PO )</option>
+                            <option value="Synth Latex D50 5cm">Synth Latex D50 5cm ( PO )</option>
+                            <option value="Memory Foam A Grade (Min Qty 1,6m3) 4cm">Memory Foam A Grade (Min Qty 1,6m3) 4cm ( PO )</option>
+                            <option value="Latex A Grade 5cm">Latex A Grade 5cm  ( PO )</option>
+                            <option value="Latex B Grade 5cm">Latex B Grade 5cm ( PO )</option>
+                            <option value="Memory Foam B Grade (Min Qty 1,6m3) 4cm">Memory Foam B Grade (Min Qty 1,6m3) 4cm ( PO )</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2">Extra Layer</label>
+                        <select class="w-full p-2 border border-gray-300 rounded" id="layerLast" onchange="updateSelection()">
+                            <option value="none">None</option>
+                            <option value="Synth Latex D50 2cm">Synth Latex D50 2cm ( PO )</option>
+                            <option value="Synth Latex D50 5cm">Synth Latex D50 5cm ( PO )</option>
+                            <option value="Memory Foam A Grade (Min Qty 1,6m3) 4cm">Memory Foam A Grade (Min Qty 1,6m3) 4cm ( PO )</option>
+                            <option value="Latex A Grade 5cm">Latex A Grade 5cm  ( PO )</option>
+                            <option value="Latex B Grade 5cm">Latex B Grade 5cm ( PO )</option>
+                            <option value="Memory Foam B Grade (Min Qty 1,6m3) 4cm">Memory Foam B Grade (Min Qty 1,6m3) 4cm ( PO )</option>
+                            <option value="2cm D24">2cm D24 </option>
+                            <option value="2cm R50">2cm R50 </option>
+                            <option value="3cm R50">3cm R50 </option>
+                            <option value="Synth Latex D26 1,5cm">Synth Latex D26 1,5cm </option>
+                            <option value="Synth Latex D26 2cm">Synth Latex D26 2cm </option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2">Finishing</label>
+                        <select class="w-full p-2 border border-gray-300 rounded" id="additionalLayer" onchange="updateSelection()">
+                            <option value="1 Side 5 Cm Quilting Top">1 Side 5 Cm Quilting Top</option>
+                            <option value="1 Side Non Quilting">1 Side Non Quilting</option>
+                            <option value="2 Side 5 Cm Quilting 2X">2 Side 5 Cm Quilting 2X</option>
+                            <option value="2 Side 5 Cm Quilting - Non Quilting">2 Side 5 Cm Quilting - Non Quilting</option>
+                            <option value="2 Side Non Quilting 2X">2 Side Non Quilting 2X</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2">Size</label>
+                        <select class="w-full p-2 border border-gray-300 rounded" id="size" onchange="updateSelection()">
+                            <option value="0">90 x 200 cm</option>
+                            <option value="1">120 x 200 cm</option>
+                            <option value="2">140 x 200 cm</option>
+                            <option value="3">160 x 200 cm</option>
+                            <option value="4">180 x 200 cm</option>
+                            <option value="5">200 x 200 cm</option>
+                        </select>
+                    </div>  
+                    <div class="mt-4">
+                        <p class="text-xl font-bold">Total Price: <span id="totalPrice">Rp 0</span></p>
+                        
+                    
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <button class="mt-4 inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 text-center" onclick="printSelection()">
+                            Print Selection
+                        </button>
+                    </div>
+                    <script>
+                        function printSelection() {
+                            const name = prompt("Enter your name:");
+                            const address = prompt("Enter your address:");
+                            const phone = prompt("Enter your phone number:");
+                            
+                            const baseMaterial = document.getElementById('baseMaterial').options[document.getElementById('baseMaterial').selectedIndex].text;
+                            const supportLayer = document.getElementById('supportLayer').options[document.getElementById('supportLayer').selectedIndex].text;
+                            const comfortLayer = document.getElementById('comfortLayer').options[document.getElementById('comfortLayer').selectedIndex].text;
+                            const layerLast = document.getElementById('layerLast').options[document.getElementById('layerLast').selectedIndex].text;
+                            const additionalLayer = document.getElementById('additionalLayer').options[document.getElementById('additionalLayer').selectedIndex].text;
+                            const size = document.getElementById('size').options[document.getElementById('size').selectedIndex].text;
+
+                            const printContent = `
+
+
+                     <style>
+                        @page { size: A6; margin: 10mm; } /* Ukuran A6 dengan margin */
+                        body { font-family: Arial, sans-serif; width: 105mm; height: 148mm; margin: 0; padding: 10px; }
+                        .container { text-align: center; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+                        th, td { border: 1px solid black; padding: 5px; text-align: left; font-size: 12px; }
+                        img { width: 80px; height: auto; margin-bottom: 10px; }
+                        
+                     </style>
+                                <div style="text-align: center;">
+                                    <img src="logo armadillo remake.png" alt="Logo" style="width: 170px; height: auto; margin-bottom: 10px;">
+                                </div>
+                                <h2>Customer Information</h2>
+                                <p><strong>Name:</strong> ${name}</p>
+                                <p><strong>Address:</strong> ${address}</p>
+                                <p><strong>Phone:</strong> ${phone}</p>
+                                <h2>Selection Details</h2>
+                                <table style="width:100%; border-collapse: collapse;">
+                                    <tr>
+                                        <th style="border: 1px solid black; padding: 8px; text-align: left;">Attribute</th>
+                                        <th style="border: 1px solid black; padding: 8px; text-align: left;">Selection</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Base Material</td>
+                                        <td style="border: 1px solid black; padding: 8px;">${baseMaterial}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Support Layer</td>
+                                        <td style="border: 1px solid black; padding: 8px;">${supportLayer}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Comfort Layer</td>
+                                        <td style="border: 1px solid black; padding: 8px;">${comfortLayer}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Extra Layer</td>
+                                        <td style="border: 1px solid black; padding: 8px;">${layerLast}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Finishing</td>
+                                        <td style="border: 1px solid black; padding: 8px;">${additionalLayer}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Size</td>
+                                        <td style="border: 1px solid black; padding: 8px;">${size}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; padding: 8px;">Total Price</td>
+                                        <td style="border: 1px solid black; padding: 8px;">${document.getElementById('totalPrice').innerText}</td>
+                                    </tr>
+                                </table>
+                            `;
+                            const printWindow = window.open('', '', 'height=400,width=600');
+                            printWindow.document.write('<html><head><Invoice Custome</title></head><body>');
+                            printWindow.document.write(printContent);
+                            printWindow.document.write('</body></html>');
+                            printWindow.document.close();
+                            printWindow.print();
+                        }
+                    </script>
+                    </script></div>
+</body>
